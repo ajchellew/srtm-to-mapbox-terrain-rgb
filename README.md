@@ -29,12 +29,14 @@ Warp WGS 84 EPSG 4326 to web mercator
 
 `gdalwarp -s_srs EPSG:4326 -t_srs EPSG:3857 -srcnodata -32767 -dstnodata 0 -r lanczos -wo SOURCE_EXTRA=1000 -co COMPRESS=LZW "C:\Users\user\Desktop\Raster DEM\translated.tif" "C:\Users\user\Desktop\Raster DEM\translated_mercator.tif"`
 
-Create mbtiles with RGB
+Create mbtiles with RGB (should definitely use webp not png in future, Mapbox do..)
 
 `rio rgbify -b -10000 -i 0.1 --max-z 12 --min-z 0 --format png "C:\Users\user\Desktop\Raster DEM\translated_mercator.tif" "C:\Users\user\Desktop\Raster DEM\uk-rgb-dem.mbtiles"`
+
+![Result](MapboxTenTest.jpg?raw=true "Result")
 
 # Helpful
 - Installing Python and GDAL https://github.com/PratyushTripathy/python_gdal_automated_windows
 - Installing Rasterio and GDAL https://github.com/mapbox/rasterio/issues/1963
-- Most of the end script https://github.com/tmnnrs/terrain-rgb
+- Most of the end result script https://github.com/tmnnrs/terrain-rgb
 - The first person to get it working https://github.com/mapbox/rio-rgbify/issues/19
